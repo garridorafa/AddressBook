@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
 
 namespace AddressBookCs
 {
@@ -8,7 +8,13 @@ namespace AddressBookCs
         static void Main(string[] args)
         {
             Contact c1 = new Contact("1", "Rafa", "809-000-0000", "example@mail.com");
-            Console.WriteLine(c1.Name);
+            Contact c2 = new Contact("2", "Jhon", "809-000-0000", "example@mail.com");
+            AddressBook ab = new AddressBook();
+            ab.addContacs(c1);
+            ab.addContacs(c2);
+
+            ab.listContacts();
+
         }
     }
 }
