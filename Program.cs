@@ -7,22 +7,28 @@ namespace AddressBookCs
     {
         static void Main(string[] args)
         {
-            Contact c1 = new Contact("1", "Rafa", "809-000-0001", "example1@mail.com");
-            Contact c2 = new Contact("2", "Jhon", "809-000-0002", "example2@mail.com");
-            Contact c3 = new Contact("3", "Rafa", "809-000-0003", "example3@mail.com");
             AddressBook ab = new AddressBook();
-            ab.addContacs(c1);
-            ab.addContacs(c2);
-            ab.addContacs(c3);
+            AddresBookCs.gui.screenVisual gui = new AddresBookCs.gui.screenVisual();
+            gui.listOption();
 
-            //ab.listContacts();
-            Console.WriteLine("Search Rafa");
-            ab.searchContact("Rafa");
-
-            Console.WriteLine("Deleting first Rafa");
-            ab.deleteContact("1");
-            ab.searchContact("Rafa");
+            string actNumber = Console.ReadLine();
             
+
+            ab.addContacs(new Contact("1", "Rafa", "789-453-1597", "example@mail.com"));
+            ab.addContacs(new Contact("2", "Manuel", "789-453-1597", "example@mail.com"));
+            ab.addContacs(new Contact("3", "Rocko", "789-453-1597", "example@mail.com"));
+
+            switch (actNumber)
+            {
+                case "1":
+                ab.listContacts();
+                Console.ReadKey();
+                gui.listOption();
+                break;
+                default:
+                Console.WriteLine("Please enter a number...");
+                break;
+            }
 
         }
     }
