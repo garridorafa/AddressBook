@@ -13,6 +13,7 @@ namespace AddressBookCs
         {
             contacts.Add(newcontact);
         }
+
         public void listContacts()
         {
             foreach (var contact in contacts)
@@ -24,5 +25,27 @@ namespace AddressBookCs
                 Console.WriteLine("");
             };
         }
+
+        public void searchContact(string contactName)
+        {
+            foreach (var contact in contacts)
+            {
+                if (contact.Name == contactName)
+                {
+                    Console.WriteLine(contact.Id);
+                    Console.WriteLine(contact.Name);
+                    Console.WriteLine(contact.Cellphone);
+                    Console.WriteLine(contact.Email);
+                    Console.WriteLine("");
+                }
+            };
+        }
+
+        public void deleteContact(string id)
+        {
+            contacts.RemoveAll(Contact => Contact.Id == id);
+        }
+
+        
     }
 }
