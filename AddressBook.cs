@@ -18,7 +18,7 @@ namespace AddressBookCs
         }
         public void addContacts(Contact newcontact)
         {
-            dbcrud.insert(newcontact.Id, newcontact.Name, newcontact.Cellphone, newcontact.Email);
+            dbcrud.insert(newcontact.Name, newcontact.Cellphone, newcontact.Email);
         }
 
         public void searchContact(string contactName)

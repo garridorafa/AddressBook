@@ -21,10 +21,10 @@ namespace AddressBookCs
             }
             dbUsed.disconnect();
         }
-        public void insert(string idToInsert, string nameToInsert, string cellphoneToInsert, string emailToInsert)
+        public void insert(string nameToInsert, string cellphoneToInsert, string emailToInsert)
         {
             dbUsed.connect();
-            MySqlCommand command = new MySqlCommand("INSERT INTO contactslist (Id, name, cellphone, email) VALUE ("+idToInsert+", '"+nameToInsert+"', '"+cellphoneToInsert+"', '"+emailToInsert+"')",dbUsed.conn);
+            MySqlCommand command = new MySqlCommand("INSERT INTO contactslist (name, cellphone, email) VALUE ('"+nameToInsert+"', '"+cellphoneToInsert+"', '"+emailToInsert+"')",dbUsed.conn);
             command.ExecuteNonQuery();
             dbUsed.disconnect();
         }
