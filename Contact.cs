@@ -7,9 +7,8 @@ namespace AddressBookCs
         private string cellphone;
         private string email;
 
-        public Contact(string id, string name, string cellphone, string email)
+        public Contact(string name, string cellphone, string email)
         {
-            this.Id = id;
             this.Name = name;
             this.Cellphone = cellphone;
             this.Email = email;

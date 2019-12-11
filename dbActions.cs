@@ -7,18 +7,16 @@ namespace AddressBookCs
     public class dbActions
     {
         MySqlController dbUsed = new MySqlController();
-        
+        public List <Contact> contactsReaded = new List<Contact>();
         public void read()
         {
             dbUsed.connect();
             MySqlCommand command = new MySqlCommand("SELECT * FROM contactslist;", dbUsed.conn);
             using (MySqlDataReader reader = command.ExecuteReader())
             {
-                System.Console.WriteLine("Id\tName\tCellphone\tEmail");
                 while (reader.Read())
                 {
-                    string row = $"{reader["id"]}\t{reader["name"]}\t{reader["cellphone"]}\t\t{reader["email"]}";
-                    System.Console.WriteLine(row);
+                    contactsReaded.Add(new Contact($"{reader["name"]}",$"{reader["cellphone"]}",$"{reader["email"]}"));
                 }
             }
             dbUsed.disconnect();

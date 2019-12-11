@@ -41,6 +41,7 @@ namespace AddressBookCs
             switch (appAction)
             {
                 case "1":
+                    addressBookUsed.listContacts();
                     Console.WriteLine("Contacts List");
                     Console.WriteLine("--------------------------");
                     foreach (var contact in addressBookUsed.contacts)
@@ -75,8 +76,6 @@ namespace AddressBookCs
                     break;
 
                     case "3":
-                    Console.WriteLine("Enter the id:");
-                    string contacId = Console.ReadLine();
                     Console.WriteLine("Enter the Name:");
                     string contacName = Console.ReadLine();
                     Console.WriteLine("Enter the Cellphone:");
@@ -84,7 +83,7 @@ namespace AddressBookCs
                     Console.WriteLine("Enter the Email:");
                     string contacEmail = Console.ReadLine();
 
-                    addressBookUsed.addContacts(new Contact (contacId,contacName,contacCellphone,contacEmail));
+                    addressBookUsed.addContacts(new Contact (contacName,contacCellphone,contacEmail));
 
                     Console.WriteLine("Complete!");
                     Console.ReadKey();

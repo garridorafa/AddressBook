@@ -14,6 +14,7 @@ namespace AddressBookCs
         public void listContacts ()
         {
             dbcrud.read();
+            contacts = dbcrud.contactsReaded;
         }
         public void addContacts(Contact newcontact)
         {
