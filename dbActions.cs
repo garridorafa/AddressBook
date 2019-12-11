@@ -16,7 +16,7 @@ namespace AddressBookCs
             {
                 while (reader.Read())
                 {
-                    contactsReaded.Add(new Contact($"{reader["name"]}",$"{reader["cellphone"]}",$"{reader["email"]}"));
+                    contactsReaded.Add(new Contact($"{reader["id"]}",$"{reader["name"]}",$"{reader["cellphone"]}",$"{reader["email"]}"));
                 }
             }
             dbUsed.disconnect();

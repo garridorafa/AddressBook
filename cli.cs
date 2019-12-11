@@ -41,7 +41,7 @@ namespace AddressBookCs
             switch (appAction)
             {
                 case "1":
-                    addressBookUsed.listContacts();
+                    addressBookUsed.updateList();
                     Console.WriteLine("Contacts List");
                     Console.WriteLine("--------------------------");
                     foreach (var contact in addressBookUsed.contacts)
@@ -58,8 +58,8 @@ namespace AddressBookCs
                     string cs = Console.ReadLine();
                     Console.WriteLine("Contacts List ---> "+cs);
                     Console.WriteLine("--------------------------");
+
                     addressBookUsed.searchContact(cs);
-                    
                     if (addressBookUsed.contactFound.Count == 0)
                     {
                         Console.WriteLine("No Macths");
@@ -75,7 +75,7 @@ namespace AddressBookCs
                     run();
                     break;
 
-                    case "3":
+                case "3":
                     Console.WriteLine("Enter the Name:");
                     string contacName = Console.ReadLine();
                     Console.WriteLine("Enter the Cellphone:");
@@ -83,14 +83,14 @@ namespace AddressBookCs
                     Console.WriteLine("Enter the Email:");
                     string contacEmail = Console.ReadLine();
 
-                    addressBookUsed.addContacts(new Contact (contacName,contacCellphone,contacEmail));
+                    addressBookUsed.addContacts(new Contact (null ,contacName,contacCellphone,contacEmail));
 
                     Console.WriteLine("Complete!");
                     Console.ReadKey();
                     run();
                     break;
 
-                    case "4":
+                case "4":
                     Console.WriteLine("Insert contacts ID to delete:");
                     string contactId = Console.ReadLine();
                     addressBookUsed.deleteContact(contactId);
@@ -105,7 +105,6 @@ namespace AddressBookCs
 
                 default:
                     Console.WriteLine("Please press a elegible option.");
-                    Console.ReadKey();
                     run();
                     break;
             }

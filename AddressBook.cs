@@ -11,8 +11,9 @@ namespace AddressBookCs
         public List <Contact> contactFound = new List<Contact>();
         dbActions dbcrud = new dbActions();
 
-        public void listContacts ()
+        public void updateList ()
         {
+            contacts.Clear();
             dbcrud.read();
             contacts = dbcrud.contactsReaded;
         }
@@ -23,6 +24,7 @@ namespace AddressBookCs
 
         public void searchContact(string contactName)
         {
+            updateList();
             contactFound.Clear();
             foreach (var contact in contacts)
             {
@@ -33,9 +35,17 @@ namespace AddressBookCs
             };
         }
 
-        public void deleteContact(string id)
+        public void deleteContact(string idToDelete)
         {
-            dbcrud.delete(id);
+            updateList();
+            foreach (var contact in contacts)
+            {
+                if (contact.Id == idToDelete)
+                {
+                    dbcrud.delete(idToDelete);
+                }
+            }
+            
         }
         public void modify(string id, Contact newcontact)
         {
